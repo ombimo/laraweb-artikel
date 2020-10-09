@@ -1,0 +1,28 @@
+{
+    "name": "ombimo/laraweb-artikel",
+    "description": "Laraweb Artikel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bimo Aji Pamungkas",
+            "email": "bimo.aji.92@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "require-dev": {
+        "xvladqt/faker-lorem-flickr" : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ombimo\\LarawebArtikel\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ombimo\\LarawebArtikel\\LarawebArtikelServiceProvider"
+            ]
+        }
+    }
+}
