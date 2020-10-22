@@ -63,13 +63,14 @@ class Artikel extends Model
 
     public function getLinkDetailAttribute()
     {
-        $locale = App::getLocale();
+        $param = [];
+        if (config('laraweb.multilang')) {
+            $param['locale'] = App::getLocale();
+        }
+        $param['id'] = $this->id;
+        $param['slug'] =  Str::slug($this->judul);
 
-        return route('artikel-detail', [
-            'locale' => $locale,
-            'id' => $this->id,
-            'slug' => Str::slug($this->judul)
-        ]);
+        return route('artikel-detail', $param);
     }
 
     public function getLinkDetailAmpAttribute()
