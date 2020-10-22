@@ -19,7 +19,12 @@ class ArtikelIndexController extends Controller
         $route = $request->route();
         $parameters = $route->parameters();
         $page = intval($request->query('page', 1));
-        $query = Artikel::publish()->defaultSort()->with(['locale']);
+        $query = Artikel::publish()->defaultSort();
+
+        if (config('laraweb.multilang')) {
+            $query = $query->with('locale');
+        }
+
         $title = 'Blog';
         Breadcrumb::add(__('app.menu.blog'), route('artikel-index'));
 
