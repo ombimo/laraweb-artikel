@@ -94,16 +94,28 @@ class Artikel extends Model
 
     public function getLocaleJudulAttribute()
     {
+        if (!config('laraweb.multilang')) {
+            return $this->judul;
+        }
+
         return $this->locale ? $this->locale->judul : $this->judul;
     }
 
     public function getLocaleIsiAttribute()
     {
+        if (!config('laraweb.multilang')) {
+            return $this->isi;
+        }
+
         return $this->locale ? $this->locale->isi : $this->isi;
     }
 
     public function getLocaleSinopsisAttribute()
     {
+        if (!config('laraweb.multilang')) {
+            return $this->sinopsis;
+        }
+
         return $this->locale ? $this->locale->sinopsis : $this->sinopsis;
     }
 }
