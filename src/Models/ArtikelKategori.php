@@ -17,7 +17,7 @@ class ArtikelKategori extends Model
 
     public function getLinkAttribute()
     {
-        return route('blog.kategori', [
+        return route('artikel-index.by-kategori', [
             'tagSlug' => $this->slug
         ]);
     }

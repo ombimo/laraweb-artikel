@@ -19,15 +19,8 @@ class ArtikelTag extends Model
 
     public function getLinkAttribute()
     {
-        return route('blog.tags', [
-            'tagSlug' => str_slug($this->name)
-        ]);
-    }
-
-    public function getLinIndexkAttribute()
-    {
-        return route('blog.tags', [
-            'tagSlug' => str_slug($this->name)
+        return route('artikel-index.by-tag', [
+            'tagSlug' => $this->name
         ]);
     }
 }
