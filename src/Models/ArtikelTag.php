@@ -8,9 +8,14 @@ class ArtikelTag extends Model
 {
     protected $table = 'artikel_tags';
 
-    protected $hidden = ['created_at', 'updated_at'];
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['nama'];
 
     public function artikel()
     {
@@ -20,7 +25,7 @@ class ArtikelTag extends Model
     public function getLinkAttribute()
     {
         return route('artikel-index.by-tag', [
-            'tagSlug' => $this->name
+            'tagSlug' => $this->nama
         ]);
     }
 }
