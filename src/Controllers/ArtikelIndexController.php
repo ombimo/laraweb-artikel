@@ -37,11 +37,11 @@ class ArtikelIndexController extends Controller
 
         //jika ada parameter tagSlug
         if (isset($parameters['tagSlug'])) {
-            $tag = ArtikelTag::where('name', $parameters['tagSlug'])->firstOrFail();
+            $tag = ArtikelTag::where('nama', $parameters['tagSlug'])->firstOrFail();
             $query = $query->whereHas('tags', function ($query) use ($tag) {
                 $query->where('tag_id', $tag->id);
             });
-            $title = 'Tulisan dengan tag #' . $tag->name;
+            $title = 'Tulisan dengan tag #' . $tag->nama;
         }
 
         //jika halaman ke sekian
