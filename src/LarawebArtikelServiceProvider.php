@@ -49,24 +49,19 @@ class LarawebArtikelServiceProvider extends ServiceProvider
             __DIR__ . '/../config/laraweb.php' => config_path('laraweb-artikel.php'),
         ]);
 
-        View::composer('*.artikel.widget.short.artikel-kategori', function ($view) {
-            $dataKategori = ArtikelKategori::withCount('artikel')->get();
+        View::composer('artikel.widget.kategori-*', function ($view) {
+            $dataKategori = ArtikelKategori::withCount('artikel')->take(10)->get();
             $view->with('widgetArtikelKategori', $dataKategori);
         });
 
-        View::composer('*.artikel.widget.short.artikel-tags', function ($view) {
+        View::composer('artikel.widget.tags-*', function ($view) {
             $dataTags = ArtikelTag::withCount('artikel')->has('artikel', '>', 0)->inRandomOrder()->limit(20)->get();
             $view->with('widgetArtikelTags', $dataTags);
         });
 
-        View::composer('*.artikel.widget.short.artikel-terbaru', function ($view) {
-            $data = Artikel::publish()->defaultSort()->limit(3)->get();
+        View::composer('artikel.widget.artikel-terbaru-*', function ($view) {
+            $data = Artikel::publish()->latest()->limit(3)->get();
             $view->with('widgetArtikelTerbaru', $data);
-        });
-
-        View::composer('*.artikel.widget.long.artikel-terbaru', function ($view) {
-            $data = Artikel::publish()->defaultSort()->limit(6)->get();
-            $view->with('widgetLongArtikelTerbaru', $data);
         });
     }
 }
