@@ -8,7 +8,7 @@ use Ombimo\LarawebArtikel\Models\Artikel;
 use Ombimo\LarawebArtikel\Models\ArtikelKategori;
 use Ombimo\LarawebArtikel\Models\ArtikelTag;
 use Illuminate\Support\Facades\Storage;
-use Ombimo\LarawebCore\Breadcrumb;
+use Ombimo\LarawebCore\Helpers\Breadcrumb;
 use Artesaos\SEOTools\Facades\SEOTools as SEO;
 
 class ArtikelController extends Controller

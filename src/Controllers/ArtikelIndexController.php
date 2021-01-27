@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Ombimo\LarawebArtikel\Models\Artikel;
 use Ombimo\LarawebArtikel\Models\ArtikelKategori;
 use Ombimo\LarawebArtikel\Models\ArtikelTag;
-use Ombimo\LarawebCore\Breadcrumb;
+use Ombimo\LarawebCore\Helpers\Breadcrumb;
 use Artesaos\SEOTools\Facades\SEOTools as SEO;
 use Ombimo\LarawebCore\Helpers\Web;
 
